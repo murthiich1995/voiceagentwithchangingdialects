@@ -1,5 +1,6 @@
 """Dialect identification and response generation using Claude."""
 import os
+import json
 from anthropic import Anthropic
 
 
@@ -60,7 +61,6 @@ Respond in this JSON format:
             response_text = message.content[0].text
 
             # Parse the response
-            import json
             # Try to extract JSON from the response
             if "```json" in response_text:
                 json_start = response_text.find("```json") + 7
